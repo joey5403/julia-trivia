@@ -54,12 +54,25 @@ function fetch_trivia_questions(amount::Int=10, difficulty::String="", category:
     try
         response = HTTP.get(url)
         if response.status == 200
-            # Decode HTML entities in the response
+            # Parse JSON first
             json_str = String(response.body)
-            json_str = decode_html_entities(json_str)
-            
             trivia_data = JSON3.read(json_str, TriviaResponse)
-            return trivia_data.results
+            
+            # Decode HTML entities in the parsed data
+            decoded_results = TriviaQuestion[]
+            for question in trivia_data.results
+                decoded_question = TriviaQuestion(
+                    decode_html_entities(question.category),
+                    question.type,
+                    question.difficulty,
+                    decode_html_entities(question.question),
+                    decode_html_entities(question.correct_answer),
+                    [decode_html_entities(ans) for ans in question.incorrect_answers]
+                )
+                push!(decoded_results, decoded_question)
+            end
+            
+            return decoded_results
         else
             @error "Failed to fetch trivia questions. HTTP status: $(response.status)"
             return TriviaQuestion[]

@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Julia Trivia Game",
+			"type": "shell",
+			"command": "julia",
+			"args": [
+				"main.jl"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Julia REPL with Project",
+			"type": "shell",
+			"command": "julia",
+			"args": [
+				"--project=."
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "julia",
+			"args": [
+				"--project=.",
+				"-e",
+				"using Pkg; Pkg.instantiate()"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
