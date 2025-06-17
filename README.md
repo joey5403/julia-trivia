@@ -4,12 +4,14 @@ A terminal-based trivia game written in Julia that fetches questions from the [O
 
 ## Features
 
-- 🎮 Interactive terminal interface with ANSI colors
+- 🎮 Beautiful terminal interface with Term.jl panels and styling
 - 🌐 Real-time question fetching from OpenTDB API
 - ⚙️ Customizable settings (number of questions, difficulty)
-- 📊 Score tracking and performance feedback
+- 📊 Advanced progress tracking with visual progress indicators
 - 🎲 Multiple choice and true/false questions
-- 🏆 Grade-based performance evaluation
+- 🏆 Grade-based performance evaluation with visual feedback
+- 🎨 Rich text formatting with colored panels and borders
+- 📋 Professional loading screens and error handling
 
 ## Requirements
 
@@ -79,6 +81,7 @@ julia-trivia/
 - **HTTP.jl**: For making API requests to OpenTDB
 - **JSON3.jl**: For parsing JSON responses
 - **StructTypes.jl**: For struct serialization
+- **Term.jl**: For rich terminal UI with colored panels, progress bars, and interactive elements
 
 ## API Information
 

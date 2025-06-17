@@ -15,14 +15,16 @@ This is a Julia project for a terminal-based trivia game that uses the OpenTDB (
 - HTTP.jl - For API requests
 - JSON3.jl - For JSON parsing
 - StructTypes.jl - For struct serialization
+- Term.jl - For rich terminal UI with colors, panels, and interactive elements
 
 ## Coding Guidelines
 - Follow Julia naming conventions (snake_case for functions, PascalCase for types)
 - Use docstrings for all public functions
 - Prefer immutable structs where possible
 - Handle HTTP and JSON parsing errors gracefully
-- Use ANSI escape codes for terminal formatting instead of external ncurses libraries
-- Keep the interface simple and accessible
+- Use Term.jl for rich terminal UI with panels, colors, and interactive elements
+- Implement beautiful and user-friendly interfaces with proper styling
+- Keep the interface intuitive and accessible
 
 ## API Integration
 - The OpenTDB API is free and doesn't require authentication
